@@ -37,13 +37,19 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public User findUserByNameAndSeries(Car car) {
+    public User findUserByNameAndSeries(String model, int series) {
+        Query query = sessionFactory.getCurrentSession().createQuery("From User user where user.car.name = :model and user.car.series =:series").setParameter("model", model).setParameter("series", series);
+        User user2 = (User) query.setMaxResults(1).getSingleResult();
+        return user2;
+
+        //query.getResultList();
+   /* public User findUserByNameAndSeries(Car car) {
         Query query1 = sessionFactory.getCurrentSession().createQuery("from User user where user.car.name=:paramName and user.car.series=:paramSeries");
         query1.setParameter("paramName", car.getName());
         query1.setParameter("paramSeries", car.getSeries());
         User user2 = (User) query1.setMaxResults(1).getSingleResult();
         return user2;
+    }*/
+
     }
-
-
 }

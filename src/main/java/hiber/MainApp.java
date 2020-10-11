@@ -36,14 +36,6 @@ public class MainApp {
             System.out.println("Last Name = " + user.getLastName());
             System.out.println("Email = " + user.getEmail());
             System.out.println();
-
-           /* Car car2 = new Car();
-            car2.setName("BMV" + Integer.toString(i));
-            car2.setSeries(i);
-            //car2.setOwner(user);
-            carService.add(car2);
-            user.setOwner(car2);
-            userService.update(user);*/
         }
         List<Car> cars = carService.findAll();
         for (int j = 0; j < cars.size(); j++) {
@@ -54,24 +46,17 @@ public class MainApp {
             System.out.println();
         }
 
+        User user = carService.findUserByNameAndSeries("Audi", 9);
+        System.out.println(user + " at  name and series");
+        context.close();
 
-        /*List<Car> cars = carService.findAll();
-        for (Car car : cars) {
-            System.out.println("Id = " + car.getId());
-            System.out.println("Name = " + car.getName());
-            System.out.println("Series = " + car.getSeries());
-            //System.out.println("Owner_ID = " + car.getOwner().getId());
-            //System.out.println("Owner_ID = " + car.getOwner());
-            System.out.println();
-        }*/
         
-        String name = "Audi";
+        /*String name = "Audi";
         int series = 9;
         Car car1 = new Car();
         car1.setName(name);
-        car1.setSeries(series);
-        User user = carService.findUserByNameAndSeries(car1);
-        System.out.println(user + " at  name and series");
-        context.close();
+        car1.setSeries(series);*/
+
+
     }
 }

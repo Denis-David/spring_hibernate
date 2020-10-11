@@ -6,5 +6,5 @@ import hiber.model.User;
 import java.util.List;
 
 public interface CarDao extends Dao<Car> {
-    User findUserByNameAndSeries(Car car);
+    User findUserByNameAndSeries(String model, int series);
 }

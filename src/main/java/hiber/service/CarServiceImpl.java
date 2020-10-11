@@ -30,8 +30,8 @@ public class CarServiceImpl implements CarService {
     }
     @Transactional(readOnly = true)
     @Override
-    public User findUserByNameAndSeries(Car car) {
-       User user= carDao.findUserByNameAndSeries(car);
+    public User findUserByNameAndSeries(String model, int series) {
+       User user= carDao.findUserByNameAndSeries(model, series);
         return user;
     }
 }
